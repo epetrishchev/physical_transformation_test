@@ -88,7 +88,3 @@ def get_week_number():
         except ValueError:
             print("Введены некорректные значения")
             is_done = user_survey()
-
-
-get_week_number()
-print("Тест")
