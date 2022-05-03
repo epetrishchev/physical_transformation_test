@@ -1,6 +1,6 @@
 from pytest_mock import mocker
 
-from physical.week_number import get_week_number
+from physical.week_number import *
 
 
 def test_get_week_number_1():
