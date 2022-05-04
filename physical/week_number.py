@@ -4,9 +4,17 @@ from webbrowser import get
 START = date(2019, 1, 1)
 
 
-def get_input_data():
-    return tuple(int(s) for s in input(
-        'Введите дату в формате yyyy.mm.dd : ').split('.'))
+def get_input_date():
+    is_done = False
+    while not is_done:
+        year, month, day = tuple(int(s) for s in input(
+            'Введите дату в формате yyyy.mm.dd : ').split('.'))
+        input_date = date(year, month, day)
+        if input_date > START:
+            return input_date
+        print('Прости, но я создан 01 января 2019 года и не знаю что было раньше\n'
+              'Попробуй ввести дату после моего Дня Рождения!')
+        is_done = user_survey()
 
 
 def get_count_weeks_year(date: date):
@@ -85,12 +93,14 @@ def get_week_number():
     while not is_done:
         try:
             # получаем дату, до которой нужно посчитать номер недели от пользователя
-            year, month, day = get_input_data()
-            # создаем объект класса date
-            user_date = date(year, month, day)
+            # в виде объекта класса date
+            user_date = get_input_date()
+            if user_date is None:
+                break
             print('Номер недели от начала времен до вашей даты: ',
                   get_total_count_weeks(user_date))
             is_done = user_survey()
         except ValueError:
             print("Введены некорректные значения")
             is_done = user_survey()
+    print('Ну что же, доиграем в следующий раз...')
