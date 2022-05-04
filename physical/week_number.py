@@ -5,6 +5,12 @@ START = date(2019, 1, 1)
 
 
 def get_input_date():
+    """
+    Функция для получения даты от пользователя в формате yyyy.mm.dd
+
+    Returns:
+        tuple: кортеж целых чисел (год, месяц, день)
+    """
     return tuple(int(s) for s in input(
         'Введите дату в формате yyyy.mm.dd : ').split('.'))
 
@@ -89,12 +95,14 @@ def get_week_number():
             year, month, day = get_input_date()
             # создаем объект класса date
             input_date = date(year, month, day)
+            # проверяем что введенная дата позже даты START
             if input_date > START:
                 print('Номер недели от начала времен до вашей даты: ',
                       get_total_count_weeks(input_date))
             else:
                 print('Прости, но я создан 01 января 2019 года и не знаю что было раньше\n'
                       'Попробуй ввести дату после моего Дня Рождения!')
+            # опрос пользователя
             is_done = user_survey()
         except ValueError:
             print("Введены некорректные значения")
