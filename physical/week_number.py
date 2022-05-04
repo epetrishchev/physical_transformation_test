@@ -94,11 +94,3 @@ def get_week_number():
         except ValueError:
             print("Введены некорректные значения")
             is_done = user_survey()
-
-
-def main():
-    get_week_number()
-
-
-if __name__ == '__main__':
-    main()
