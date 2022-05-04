@@ -7,9 +7,9 @@ START = date(2019, 1, 1)
 def get_input_date():
     is_done = False
     while not is_done:
+        print('='.ljust(100, '='))
         year, month, day = tuple(int(s) for s in input(
             'Введите дату в формате yyyy.mm.dd : ').split('.'))
-        print('='.ljust(100, '='))
         input_date = date(year, month, day)
         if input_date > START:
             return input_date
