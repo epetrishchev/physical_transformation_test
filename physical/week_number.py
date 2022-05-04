@@ -1,5 +1,5 @@
 from datetime import date
-from webbrowser import get
+
 
 START = date(2019, 1, 1)
 
@@ -9,6 +9,7 @@ def get_input_date():
     while not is_done:
         year, month, day = tuple(int(s) for s in input(
             'Введите дату в формате yyyy.mm.dd : ').split('.'))
+        print('='.ljust(100, '='))
         input_date = date(year, month, day)
         if input_date > START:
             return input_date
